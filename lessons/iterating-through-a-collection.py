@@ -10,4 +10,4 @@ while i < len(user_string):
     print(user_string[i])
     i = i + 1
 
-print ("Done!")
+print("Done!")
