@@ -7,6 +7,7 @@ from random import randint
 
 
 def main() -> None:
+    """A introduction to the game."""
     print(greet(x))
     where_to_go: str = input("What do you want to do next? Press '1' to end the experience. Press '2' to continue playing. Press '3' to change the game. ")
     if where_to_go == "1":
@@ -18,17 +19,20 @@ def main() -> None:
 
 
 def greet(x: str) -> None:
+    """A function to greet the player."""
     player == player
     print(f"Welcome, {player}!")
     print("In this game, I'm thinking of a number between 1-10. Every time you guess it correctly, you win 5 adventure points. Every time you guess it incorrectly, you get nothing.")
 
 
 def end(x: str) -> str:
+    """A function end the game."""
     print(f"Alright, {player}, GAME OVER. Through this experience, you accumulated {points} adventure points. Better luck next time!")
     return x
 
 
 def keep_going(x: str) -> str:
+    """A function to continue the game."""
     global points
     global answer_right
     global answer_wrong
@@ -62,6 +66,7 @@ def keep_going(x: str) -> str:
 
 
 def go_on(x: int) -> int:
+    """A function if the player still wants to continue the game."""
     global points
     global answer_right
     global answer_wrong
@@ -92,6 +97,7 @@ def go_on(x: int) -> int:
 
 
 def change(x: str) -> str:
+    """A function to change how the game is played."""
     direction: str = input(f"\U0001F928{EMOJI} Are you sure you want to do that, {player}? I promise it's really fun! Press '1' for 'Yes, I'm sure' and '2' for 'No, I'm not sure.' ")
     if direction == "1":
         print(f"Alright, if you say so, {player}. Your loss, though. Now I'm going to make the game even harder. I was going to be nice, but you doubt my game. Now, you can suffer. Instead of having to guess a number between 1 and 10, now it's a number between 1 and 100. Good luck!!!")
