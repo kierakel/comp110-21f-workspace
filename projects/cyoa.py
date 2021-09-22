@@ -6,9 +6,17 @@ __author__ = "730350912"
 from random import randint
 
 
+player: str = input("Who are you? ")
+x: str = ""
+answer_right: int = 5
+answer_wrong: int = 1
+points: int = 0
+EMOJI: str = "\U00000000"
+
+
 def main() -> None:
     """A introduction to the game."""
-    print(greet(x))
+    print(greet())
     where_to_go: str = input("What do you want to do next? Press '1' to end the experience. Press '2' to continue playing. Press '3' to change the game. ")
     if where_to_go == "1":
         print(end(x))
@@ -18,15 +26,15 @@ def main() -> None:
         print(change(x))
 
 
-def greet(x: str) -> None:
+def greet() -> None:
     """A function to greet the player."""
-    player == player
-    print(f"Welcome, {player}!")
-    print("In this game, I'm thinking of a number between 1-10. Every time you guess it correctly, you win 5 adventure points. Every time you guess it incorrectly, you get nothing.")
+    global player
+    print(f"Welcome, {player}! In this game, I'm thinking of a number between 1-10. Every time you guess it correctly, you win 5 adventure points. Every time you guess it incorrectly, you get nothing.")
 
 
 def end(x: str) -> str:
     """A function end the game."""
+    global player
     print(f"Alright, {player}, GAME OVER. Through this experience, you accumulated {points} adventure points. Better luck next time!")
     return x
 
@@ -36,6 +44,7 @@ def keep_going(x: str) -> str:
     global points
     global answer_right
     global answer_wrong
+    global player
     print(f"Alright, {player}, let's play!")
     i = 0
     random = (randint(1, 10))
@@ -70,6 +79,7 @@ def go_on(x: int) -> int:
     global points
     global answer_right
     global answer_wrong
+    global player
     i = 0
     random = (randint(1, 10))
     number: int = int(input("What number am I thinking of? "))
@@ -97,10 +107,11 @@ def go_on(x: int) -> int:
 
 
 def change(x: str) -> str:
+    """A function to change how the game is played."""
     global points
     global answer_right
     global answer_wrong
-    """A function to change how the game is played."""
+    global player
     direction: str = input(f"Are you sure you want to do that, {player}? I promise it's really fun! Press '1' for 'Yes, I'm sure' and '2' for 'No, I'm not sure.' ")
     if direction == "1":
         print(f"Alright, if you say so, {player}. Your loss, though. Now I'm going to make the game even harder. I was going to be nice, but you doubt my game. Now, you can suffer. Instead of having to guess a number between 1 and 10, now it's a number between 1 and 100. Good luck!!!")
@@ -125,14 +136,6 @@ def change(x: str) -> str:
         print(f"You made the right decision, {player}. You get to have an easier time than the other guys. Good luck with the rest of the game; I'll be here for moral support.")
         return str(keep_going(x))
     return x
-
-
-player: str = input("Who are you? ")
-x: str = ""
-answer_right: int = 5
-answer_wrong: int = 1
-points: int = 0
-EMOJI: str = "\U00000000"
 
 
 if __name__ == "__main__":
