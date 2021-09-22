@@ -97,14 +97,16 @@ def go_on(x: int) -> int:
 
 
 def change(x: str) -> str:
+    global points
+    global answer_right
+    global answer_wrong
     """A function to change how the game is played."""
-    direction: str = input(f"\U0001F928{EMOJI} Are you sure you want to do that, {player}? I promise it's really fun! Press '1' for 'Yes, I'm sure' and '2' for 'No, I'm not sure.' ")
+    direction: str = input(f"Are you sure you want to do that, {player}? I promise it's really fun! Press '1' for 'Yes, I'm sure' and '2' for 'No, I'm not sure.' ")
     if direction == "1":
         print(f"Alright, if you say so, {player}. Your loss, though. Now I'm going to make the game even harder. I was going to be nice, but you doubt my game. Now, you can suffer. Instead of having to guess a number between 1 and 10, now it's a number between 1 and 100. Good luck!!!")
         i = 0
         random = (randint(1, 100))
         number: int = int(input("What number am I thinking of? "))
-        points: int = 0
         while i == 0:
             if number == random:
                 points = points + answer_right
