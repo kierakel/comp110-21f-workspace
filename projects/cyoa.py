@@ -6,7 +6,7 @@ __author__ = "730350912"
 from random import randint
 
 
-player: str = input("Who are you? ")
+player: str = ""
 x: str = ""
 answer_right: int = 5
 answer_wrong: int = 1
@@ -16,6 +16,8 @@ EMOJI: str = "\U00000000"
 
 def main() -> None:
     """A introduction to the game."""
+    global player
+    player = input("Who are you? ")
     print(greet())
     where_to_go: str = input("What do you want to do next? Press '1' to end the experience. Press '2' to continue playing. Press '3' to change the game. ")
     if where_to_go == "1":
