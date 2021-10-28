@@ -28,6 +28,9 @@ def favorite_color(colors: dict[str, str]) -> str:
     return fav_color
 
 
+print(favorite_color({"Marc": "green", "Ezri": "blue", "Kris": "green", "Kiera": "blue"}))
+
+
 def count(list: list[str]) -> dict[str, int]:
     """A function to count how many times a key appears while iterating through a dictionary."""
     empty = {}
