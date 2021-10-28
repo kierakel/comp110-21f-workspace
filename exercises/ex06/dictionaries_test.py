@@ -1,6 +1,8 @@
 """Unit tests for dictionary functions."""
 
 from exercises.ex06.dictionaries import invert, favorite_color, count
+import pytest
+
 
 __author__ = "730350912"
 
@@ -13,8 +15,9 @@ def test_invert_correctly_inverted() -> None:
 
 def test_invert_key_error() -> None:
     """A test of whether the function invert correctly raises a KeyError when more than one of the same key is encountered."""
-    xs = {'kris': 'jordan', 'michael': 'jordan'}
-    assert invert(xs) == KeyError
+    with pytest.raises(KeyError):
+        xs = {'kris': 'jordan', 'michael': 'jordan'}
+        invert(xs)
 
 
 def test_invert_multiple_keys() -> None:
@@ -36,24 +39,24 @@ def test_favorite_color_most_frequent() -> None:
 
 
 def test_favorite_color_no_winner() -> None:
-    """A test of whether the function favorite_colors correctly identifies when there is no color that appears most frequently."""
+    """A test of whether the function favorite_colors identifies no color as the favorite color when there is no color that appears most frequently."""
     xs = {"Marc": "yellow", "Ezri": "green", "Kris": "blue"}
-    assert favorite_color(xs) == "no winner found"
+    assert favorite_color(xs) == ""
 
 
 def test_count_found() -> None:
     """A test of whether the function count increases the value associated by a key by 1 when it is found more than once."""
     xs = ["Marc", "Marc"]
-    assert count(xs) == {"Marc": "2"}
+    assert count(xs) == {'Marc': 2}
 
 
 def test_count_not_found() -> None:
     """A test of whether the function count keeps the value associated by a key at 1 when it is not found more than once."""
     xs = ["Ezri", "Kris"]
-    assert count(xs) == {"Ezri": "1", "Kris": "1"}
+    assert count(xs) == {'Ezri': 1, 'Kris': 1}
 
 
 def test_count_return_dictionary() -> None:
     """A test of whether the function count correctly returns a dictionary with keys relating to strings and values relating to how many times they appeared in a list."""
     xs = ["Marc", "Ezri", "Kris", "Marc"]
-    assert count(xs) == {"Marc": "2", "Ezri": "1", "Kris": "1"}
+    assert count(xs) == {'Marc': 2, 'Ezri': 1, 'Kris': 1}
