@@ -36,6 +36,7 @@ def columnar(table: list[dict[str, str]]) -> dict[str, list[str]]:
 
 
 def head(column_table: dict[str, list[str]], rows: int) -> dict[str, list[str]]:
+    """This function produces a new column-bsaed table with a select number of rows."""
     empty_dict: dict[str, list[str]] = {}
     i: int = 0
     for columns in column_table:
@@ -47,6 +48,7 @@ def head(column_table: dict[str, list[str]], rows: int) -> dict[str, list[str]]:
 
 
 def select(column_table: dict[str, list[str]], names: list[str]) -> dict[str, list[str]]:
+    """This function produces a new table with a only a select number of columns."""
     empty_dict: dict[str, list[str]] = {}
     for key in empty_dict:
         empty_dict[key] = names
@@ -54,6 +56,7 @@ def select(column_table: dict[str, list[str]], names: list[str]) -> dict[str, li
    
 
 def concat(table_1: dict[str, list[str]], table_2: dict[str, list[str]]) -> dict[str, list[str]]:
+    """This function produces a new table by combining two different tables."""
     empty_dict: dict[str, list[str]] = {}
     for column in table_1:
         empty_dict[column] = table_1[column]
@@ -63,6 +66,7 @@ def concat(table_1: dict[str, list[str]], table_2: dict[str, list[str]]) -> dict
 
 
 def count(list: list[str]) -> dict[str, int]:
+    """This function counts how many times a value appears in a list."""
     empty_dict: dict[str, int] = {}
     i: int = 0
     value: int = 0
