@@ -33,3 +33,45 @@ def columnar(table: list[dict[str, str]]) -> dict[str, list[str]]:
     for column in row_1:
         empty[column] = column_values(table, column)
     return empty
+
+
+def head(column_table: dict[str, list[str]], rows: int) -> dict[str, list[str]]:
+    empty_dict: dict[str, list[str]] = {}
+    i: int = 0
+    for columns in column_table:
+        empty_list: list[str] = []
+        while i <= rows:
+            empty_list.append(columns[i])
+        empty_dict[columns] = empty_list
+    return empty_dict
+
+
+def select(column_table: dict[str, list[str]], names: list[str]) -> dict[str, list[str]]:
+    empty_dict: dict[str, list[str]] = {}
+    for key in empty_dict:
+        empty_dict[key] = names
+    return empty_dict
+   
+
+def concat(table_1: dict[str, list[str]], table_2: dict[str, list[str]]) -> dict[str, list[str]]:
+    empty_dict: dict[str, list[str]] = {}
+    for column in table_1:
+        empty_dict[column] = table_1[column]
+    for column in table_2:
+        empty_dict[column] = table_2[column]
+    return empty_dict
+
+
+def count(list: list[str]) -> dict[str, int]:
+    empty_dict: dict[str, int] = {}
+    i: int = 0
+    value: int = 0
+    for item in empty_dict:
+        item = list[i]
+        if item in empty_dict:
+            item = item[i]
+            value += 1
+        else:
+            value = 1
+        i += 1
+    return empty_dict
