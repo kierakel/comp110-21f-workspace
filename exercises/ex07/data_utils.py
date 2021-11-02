@@ -38,20 +38,25 @@ def columnar(table: list[dict[str, str]]) -> dict[str, list[str]]:
 def head(column_table: dict[str, list[str]], rows: int) -> dict[str, list[str]]:
     """This function produces a new column-bsaed table with a select number of rows."""
     empty_dict: dict[str, list[str]] = {}
-    i: int = 0
-    for columns in column_table:
-        empty_list: list[str] = []
-        while i <= rows:
-            empty_list.append(columns[i])
-        empty_dict[columns] = empty_list
-    return empty_dict
+    N: int = rows
+    if N >= len(column_table): 
+        return column_table
+    else:
+        for column in column_table:
+            empty_list: list[str] = []
+            i: int = 0
+            while i < N:
+                empty_list.append(column_table[column][i])
+                i += 1
+            empty_dict[column] = empty_list
+        return empty_dict
 
 
 def select(column_table: dict[str, list[str]], names: list[str]) -> dict[str, list[str]]:
     """This function produces a new table with a only a select number of columns."""
     empty_dict: dict[str, list[str]] = {}
-    for key in empty_dict:
-        empty_dict[key] = names
+    for column in names:
+        empty_dict[column] = column_table[column]
     return empty_dict
    
 
@@ -61,7 +66,10 @@ def concat(table_1: dict[str, list[str]], table_2: dict[str, list[str]]) -> dict
     for column in table_1:
         empty_dict[column] = table_1[column]
     for column in table_2:
-        empty_dict[column] = table_2[column]
+        if column in empty_dict:
+            empty_dict[column] += table_2[column]
+        else:
+            empty_dict[column] = table_2[column]
     return empty_dict
 
 
@@ -69,13 +77,10 @@ def count(list: list[str]) -> dict[str, int]:
     """This function counts how many times a value appears in a list."""
     empty_dict: dict[str, int] = {}
     i: int = 0
-    value: int = 0
-    for item in empty_dict:
-        item = list[i]
-        if item in empty_dict:
-            item = item[i]
-            value += 1
+    for string in list:
+        if string in empty_dict:
+            empty_dict[string] += 1
         else:
-            value = 1
-        i += 1
+            empty_dict[string] = 1
+    i += 1
     return empty_dict
